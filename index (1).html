@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pustaka Digital — Universitas Potensi Utama</title>
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --maroon: #7A1F2B;
+  --maroon-dark: #5C141D;
+  --maroon-soft: #9C3B47;
+  --cream: #F5EDE3;
+  --cream-deep: #ECE0D1;
+  --ink: #2B2118;
+  --gold: #C9A227;
+  --paper: #FFFFFF;
+  --line: rgba(43,33,24,0.12);
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*{ scroll-behavior: smooth; }
+
+body{
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+}
+
+h1,h2,h3,h4, .font-display{
+  font-family: var(--font-display);
+}
+
+.text-maroon{ color: var(--maroon) !important; }
+.bg-maroon{ background-color: var(--maroon) !important; }
+.bg-maroon-dark{ background-color: var(--maroon-dark) !important; }
+.bg-cream{ background-color: var(--cream) !important; }
+.bg-cream-deep{ background-color: var(--cream-deep) !important; }
+.text-gold{ color: var(--gold) !important; }
+.border-maroon{ border-color: var(--maroon) !important; }
+
+.btn-maroon{
+  background-color: var(--maroon);
+  border-color: var(--maroon);
+  color: #fff;
+}
+.btn-maroon:hover{
+  background-color: var(--maroon-dark);
+  border-color: var(--maroon-dark);
+  color: #fff;
+}
+.btn-outline-maroon{
+  border-color: var(--maroon);
+  color: var(--maroon);
+}
+.btn-outline-maroon:hover{
+  background-color: var(--maroon);
+  color: #fff;
+}
+
+/* ===== Navbar ===== */
+.navbar-pustaka{
+  background-color: var(--maroon);
+  box-shadow: 0 2px 12px rgba(43,33,24,0.18);
+}
+.navbar-pustaka .nav-link{
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+.navbar-pustaka .nav-link.active, .navbar-pustaka .nav-link:hover{
+  color: #fff;
+}
+.brand-mark{
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.brand-mark .accent{ color: var(--gold); }
+
+/* ===== Hero Carousel ===== */
+.hero-carousel{
+  border-radius: 0 0 28px 28px;
+  overflow: hidden;
+}
+.carousel-slide{
+  min-height: 460px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.carousel-slide::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(43,18,20,0.88) 0%, rgba(43,18,20,0.55) 45%, rgba(43,18,20,0.15) 80%);
+}
+.carousel-slide-content{
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+.carousel-eyebrow{
+  font-family: var(--font-mono);
+  letter-spacing: 2px;
+  font-size: 0.78rem;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.carousel-slide h2{
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* ===== Section heading pattern ===== */
+.section-eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--maroon-soft);
+}
+.section-title{
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ===== Progress / Bookmark ribbon ===== */
+.bookmark-progress{
+  position: relative;
+  background: var(--paper);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  padding: 1.1rem 1.25rem 1.1rem 1.5rem;
+  overflow: hidden;
+}
+.bookmark-progress::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: var(--maroon);
+}
+.bookmark-track{
+  height: 10px;
+  border-radius: 999px;
+  background: var(--cream-deep);
+  overflow: hidden;
+  position: relative;
+}
+.bookmark-fill{
+  height: 100%;
+  background: linear-gradient(90deg, var(--maroon-soft), var(--maroon));
+  border-radius: 999px;
+  position: relative;
+  transition: width 0.6s ease;
+}
+.bookmark-fill::after{
+  content: "";
+  position: absolute;
+  right: -2px; top: -6px;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 11px 7px 0 7px;
+  border-color: var(--maroon) transparent transparent transparent;
+}
+
+/* ===== Book card with dog-ear fold (signature element) ===== */
+.book-card{
+  background: var(--paper);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+}
+.book-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(43,33,24,0.16);
+}
+.book-cover-wrap{
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--cream-deep);
+}
+.book-cover-wrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dog-ear{
+  position: absolute;
+  top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 0 34px 34px 0;
+  border-color: transparent var(--cream) transparent transparent;
+  filter: drop-shadow(-2px 2px 3px rgba(0,0,0,0.18));
+  z-index: 2;
+}
+.book-cat-badge{
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.5px;
+}
+.book-title{
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.book-isbn{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #8a7d6f;
+}
+
+/* ===== Filter bar ===== */
+.filter-bar{
+  background: var(--paper);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+
+/* ===== Footer ===== */
+.footer-pustaka{
+  background: var(--maroon-dark);
+  color: rgba(255,255,255,0.85);
+}
+.footer-pustaka a{
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+}
+.footer-pustaka a:hover{ color: var(--gold); }
+
+/* ===== Misc ===== */
+.section-divider{
+  height: 1px;
+  background: var(--line);
+}
+.card-stat{
+  background: var(--paper);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+.icon-disc{
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--cream-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--maroon);
+  font-size: 1.2rem;
+}
+.list-group-item.active-borrow{
+  border-left: 4px solid var(--maroon);
+}
+.accordion-button:not(.collapsed){
+  background-color: var(--cream-deep);
+  color: var(--maroon-dark);
+}
+.accordion-button:focus{
+  box-shadow: 0 0 0 0.2rem rgba(122,31,43,0.2);
+}
+.nav-pills .nav-link.active{
+  background-color: var(--maroon);
+}
+.form-control:focus, .form-select:focus{
+  border-color: var(--maroon-soft);
+  box-shadow: 0 0 0 0.2rem rgba(122,31,43,0.15);
+}
+.skip-link:focus{
+  position: fixed; top: 8px; left: 8px; z-index: 9999;
+  background: #fff; padding: 8px 14px; border-radius: 8px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<a href="#konten-utama" class="visually-hidden-focusable skip-link">Lompat ke konten utama</a>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg navbar-pustaka sticky-top py-3" id="navbarUtama">
+  <div class="container">
+    <a class="navbar-brand brand-mark text-white d-flex align-items-center gap-2" href="#beranda">
+      <i class="bi bi-book-half text-gold fs-3"></i>
+      Pustaka<span class="accent">Digital</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Buka menu navigasi">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#katalog">Katalog Buku</a></li>
+        <li class="nav-item"><a class="nav-link" href="#peminjaman">Peminjaman</a></li>
+        <li class="nav-item"><a class="nav-link" href="#riwayat">Riwayat</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        <li class="nav-item dropdown ms-lg-2">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle fs-5"></i>
+            <span id="navUserName">Tamu</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+            <li><a class="dropdown-item" href="#peminjaman"><i class="bi bi-journal-bookmark me-2"></i>Sedang Dipinjam</a></li>
+            <li><a class="dropdown-item" href="#riwayat"><i class="bi bi-clock-history me-2"></i>Riwayat Peminjaman</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#kontak"><i class="bi bi-gear me-2"></i>Pengaturan Akun</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="konten-utama">
+
+<!-- ============ BERANDA / HERO CAROUSEL ============ -->
+<section id="beranda" class="bg-maroon pb-4">
+  <div class="container pt-2">
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1600&auto=format&fit=crop');">
+            <div class="container">
+              <div class="carousel-slide-content col-lg-8">
+                <span class="carousel-eyebrow">Pekan Literasi Kampus 2026</span>
+                <h2 class="mt-2 mb-3">Jelajahi Ribuan Koleksi Digital Kapan Saja, Di Mana Saja</h2>
+                <p class="mb-4 fs-5" style="max-width:540px;">Akses katalog Pustaka Digital Universitas Potensi Utama — pinjam, baca, dan pantau progresmu langsung dari perangkatmu.</p>
+                <a href="#katalog" class="btn btn-lg btn-maroon px-4">Mulai Jelajahi <i class="bi bi-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop');">
+            <div class="container">
+              <div class="carousel-slide-content col-lg-8">
+                <span class="carousel-eyebrow">Layanan Peminjaman Online</span>
+                <h2 class="mt-2 mb-3">Pinjam Buku Tanpa Antre, Baca Tanpa Batas Waktu Operasional</h2>
+                <p class="mb-4 fs-5" style="max-width:540px;">Sistem peminjaman digital memungkinkanmu meminjam e-book 24 jam dan melacak tenggat pengembalian otomatis.</p>
+                <a href="#peminjaman" class="btn btn-lg btn-outline-light px-4">Lihat Cara Pinjam</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&auto=format&fit=crop');">
+            <div class="container">
+              <div class="carousel-slide-content col-lg-8">
+                <span class="carousel-eyebrow">Koleksi Terbaru</span>
+                <h2 class="mt-2 mb-3">Tambahan 120 Judul Baru di Kategori Sains &amp; Teknologi</h2>
+                <p class="mb-4 fs-5" style="max-width:540px;">Perkaya referensi akademikmu dengan koleksi terbaru yang dikurasi langsung oleh pustakawan kampus.</p>
+                <a href="#katalog" class="btn btn-lg btn-maroon px-4">Lihat Koleksi Baru</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Sebelumnya</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Berikutnya</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<section class="container my-4 my-lg-5">
+  <div class="row g-3 g-lg-4">
+    <div class="col-6 col-lg-3">
+      <div class="card-stat p-3 p-lg-4 text-center h-100">
+        <div class="icon-disc mx-auto mb-2"><i class="bi bi-journals"></i></div>
+        <h3 class="font-display h4 mb-0">8.420</h3>
+        <small class="text-muted">Judul Tersedia</small>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card-stat p-3 p-lg-4 text-center h-100">
+        <div class="icon-disc mx-auto mb-2"><i class="bi bi-people"></i></div>
+        <h3 class="font-display h4 mb-0">12.300</h3>
+        <small class="text-muted">Anggota Aktif</small>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card-stat p-3 p-lg-4 text-center h-100">
+        <div class="icon-disc mx-auto mb-2"><i class="bi bi-arrow-down-circle"></i></div>
+        <h3 class="font-display h4 mb-0">35.900</h3>
+        <small class="text-muted">Total Dipinjam</small>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card-stat p-3 p-lg-4 text-center h-100">
+        <div class="icon-disc mx-auto mb-2"><i class="bi bi-star"></i></div>
+        <h3 class="font-display h4 mb-0">4.8/5</h3>
+        <small class="text-muted">Kepuasan Pengguna</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEDANG DIBACA (Progress) ============ -->
+<section class="container my-5">
+  <div class="d-flex justify-content-between align-items-end mb-3 flex-wrap gap-2">
+    <div>
+      <span class="section-eyebrow">Progres Membaca</span>
+      <h2 class="section-title h3 mb-0">Lanjutkan Membaca</h2>
+    </div>
+    <span class="badge bg-cream-deep text-maroon-dark border border-maroon px-3 py-2" style="color:var(--maroon-dark);">
+      <i class="bi bi-info-circle me-1"></i>Tersimpan otomatis di perangkat ini
+    </span>
+  </div>
+
+  <div id="progressBacaWrap" class="row g-3">
+    <!-- diisi oleh JavaScript dari localStorage -->
+  </div>
+
+  <div id="progressBacaEmpty" class="text-center py-5 d-none">
+    <i class="bi bi-bookmark-heart display-4" style="color:var(--maroon-soft);"></i>
+    <p class="mt-3 mb-0 text-muted">Belum ada buku yang sedang dibaca. Pinjam buku dari katalog untuk mulai melacak progresmu di sini.</p>
+  </div>
+</section>
+
+<div class="container"><div class="section-divider"></div></div>
+
+<!-- ============ KATALOG BUKU ============ -->
+<section id="katalog" class="container my-5">
+  <div class="mb-4">
+    <span class="section-eyebrow">Koleksi Perpustakaan</span>
+    <h2 class="section-title h3">Katalog Buku</h2>
+    <p class="text-muted mb-0">Telusuri koleksi e-book Universitas Potensi Utama. Gunakan filter untuk mempersempit pencarian berdasarkan kategori.</p>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar p-3 p-lg-3 mb-4">
+    <div class="row g-2 align-items-center">
+      <div class="col-12 col-lg-5">
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+          <input type="text" id="inputCariBuku" class="form-control border-start-0" placeholder="Cari judul buku, penulis, atau ISBN...">
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <select class="form-select" id="filterKategori">
+          <option value="semua" selected>Semua Kategori</option>
+          <option value="Filsafat">Filsafat</option>
+          <option value="Sains">Sains &amp; Teknologi</option>
+          <option value="Ekonomi">Ekonomi &amp; Bisnis</option>
+          <option value="Sastra">Sastra</option>
+          <option value="Sejarah">Sejarah</option>
+          <option value="Pengembangan Diri">Pengembangan Diri</option>
+        </select>
+      </div>
+      <div class="col-6 col-lg-2">
+        <select class="form-select" id="filterStatus">
+          <option value="semua" selected>Semua Status</option>
+          <option value="tersedia">Tersedia</option>
+          <option value="dipinjam">Sedang Dipinjam</option>
+        </select>
+      </div>
+      <div class="col-12 col-lg-2 d-flex justify-content-lg-end">
+        <div class="btn-group" role="group" aria-label="Mode tampilan katalog">
+          <button type="button" class="btn btn-outline-maroon active" id="btnViewGrid" data-bs-toggle="tooltip" title="Tampilan Grid">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+          </button>
+          <button type="button" class="btn btn-outline-maroon" id="btnViewList" data-bs-toggle="tooltip" title="Tampilan List">
+            <i class="bi bi-list-ul"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid buku -->
+  <div class="row g-3 g-lg-4" id="grid-buku">
+    <!-- diisi oleh JavaScript -->
+  </div>
+
+  <div id="katalogEmpty" class="text-center py-5 d-none">
+    <i class="bi bi-emoji-frown display-4" style="color:var(--maroon-soft);"></i>
+    <p class="mt-3 mb-0 text-muted">Buku yang kamu cari tidak ditemukan. Coba kata kunci atau filter lain.</p>
+  </div>
+
+  <!-- Pagination -->
+  <nav class="mt-4 d-flex justify-content-center" aria-label="Navigasi halaman katalog">
+    <ul class="pagination" id="paginasiKatalog">
+      <!-- diisi oleh JavaScript -->
+    </ul>
+  </nav>
+</section>
+
+</main>
+
+<!-- ============ MODAL DETAIL BUKU ============ -->
+<div class="modal fade" id="modalDetailBuku" tabindex="-1" aria-labelledby="modalDetailBukuLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <nav aria-label="breadcrumb" class="flex-grow-1">
+          <ol class="breadcrumb mb-0 small">
+            <li class="breadcrumb-item"><a href="#katalog" data-bs-dismiss="modal" class="text-decoration-none" style="color:var(--maroon);">Katalog</a></li>
+            <li class="breadcrumb-item active" aria-current="page" id="breadcrumbKategori">Kategori</li>
+            <li class="breadcrumb-item active" aria-current="page" id="breadcrumbJudul">Judul Buku</li>
+          </ol>
+        </nav>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body pt-2">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="book-cover-wrap rounded-3">
+              <img id="modalCover" src="" alt="">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <span class="badge bg-cream-deep mb-2 book-cat-badge" id="modalKategori" style="color:var(--maroon-dark);">Kategori</span>
+            <h3 class="font-display fw-600" id="modalJudul">Judul Buku</h3>
+            <p class="text-muted mb-1" id="modalPenulis">Penulis</p>
+            <p class="book-isbn mb-3" id="modalIsbn">ISBN: -</p>
+            <p id="modalDeskripsi" class="mb-3">Deskripsi singkat buku akan tampil di sini.</p>
+            <div class="d-flex flex-wrap gap-3 mb-3">
+              <div><i class="bi bi-star-fill text-gold"></i> <span id="modalRating">4.5</span>/5</div>
+              <div><i class="bi bi-file-earmark-text"></i> <span id="modalHalaman">0</span> Halaman</div>
+              <div><span class="badge" id="modalStatusBadge">Tersedia</span></div>
+            </div>
+            <div class="alert alert-warning py-2 small d-none" id="modalAlertDipinjam">
+              <i class="bi bi-exclamation-triangle me-1"></i>Buku ini sedang kamu pinjam. Lanjutkan membaca dari tombol di bawah.
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+              <button class="btn btn-maroon" id="btnPinjamModal"><i class="bi bi-journal-plus me-1"></i>Pinjam Buku Ini</button>
+              <a href="#" id="btnUnduhModal" target="_blank" class="btn btn-outline-maroon d-none"><i class="bi bi-cloud-arrow-down me-1"></i>Unduh dari Google Drive</a>
+              <button class="btn btn-outline-secondary d-none" id="btnKembalikanModal"><i class="bi bi-arrow-counterclockwise me-1"></i>Kembalikan Buku</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="konten-lanjutan">
+
+<!-- ============ PEMINJAMAN ============ -->
+<section id="peminjaman" class="container my-5">
+  <div class="mb-4">
+    <span class="section-eyebrow">Status Buku Saya</span>
+    <h2 class="section-title h3">Peminjaman</h2>
+    <p class="text-muted mb-0">Pantau buku yang sedang kamu pinjam dan tenggat pengembaliannya.</p>
+  </div>
+
+  <ul class="nav nav-pills mb-4" id="pinjamTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="tab-aktif-btn" data-bs-toggle="pill" data-bs-target="#tab-aktif" type="button" role="tab">
+        <i class="bi bi-journal-bookmark me-1"></i>Sedang Dipinjam
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab-tersimpan-btn" data-bs-toggle="pill" data-bs-target="#tab-tersimpan" type="button" role="tab">
+        <i class="bi bi-bookmark-star me-1"></i>Tersimpan
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="pinjamTabContent">
+    <div class="tab-pane fade show active" id="tab-aktif" role="tabpanel">
+      <div class="list-group" id="listPinjamanAktif">
+        <!-- diisi JavaScript -->
+      </div>
+      <div id="pinjamanAktifEmpty" class="text-center py-5 d-none">
+        <i class="bi bi-journal-x display-4" style="color:var(--maroon-soft);"></i>
+        <p class="mt-3 mb-0 text-muted">Belum ada buku yang sedang dipinjam. Jelajahi katalog untuk mulai meminjam.</p>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="tab-tersimpan" role="tabpanel">
+      <div class="list-group" id="listTersimpan">
+        <!-- diisi JavaScript -->
+      </div>
+      <div id="tersimpanEmpty" class="text-center py-5 d-none">
+        <i class="bi bi-bookmark display-4" style="color:var(--maroon-soft);"></i>
+        <p class="mt-3 mb-0 text-muted">Belum ada buku tersimpan. Tandai buku favoritmu dari katalog.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="section-divider"></div></div>
+
+<!-- ============ RIWAYAT ============ -->
+<section id="riwayat" class="container my-5">
+  <div class="mb-4">
+    <span class="section-eyebrow">Jejak Bacaan</span>
+    <h2 class="section-title h3">Riwayat Peminjaman</h2>
+    <p class="text-muted mb-0">Daftar buku yang telah selesai kamu pinjam dan kembalikan.</p>
+  </div>
+  <div class="list-group" id="listRiwayat">
+    <!-- diisi JavaScript -->
+  </div>
+  <div id="riwayatEmpty" class="text-center py-5 d-none">
+    <i class="bi bi-clock-history display-4" style="color:var(--maroon-soft);"></i>
+    <p class="mt-3 mb-0 text-muted">Riwayat peminjamanmu akan muncul di sini setelah kamu mengembalikan buku.</p>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ FAQ ============ -->
+<div class="bg-cream-deep py-5">
+  <section id="faq" class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4">
+        <span class="section-eyebrow">Bantuan</span>
+        <h2 class="section-title h3">Pertanyaan yang Sering Diajukan</h2>
+        <p class="text-muted">Tidak menemukan jawaban yang kamu cari? Hubungi kami melalui formulir kontak di bawah.</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="accordion" id="accordionFaq">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Bagaimana cara meminjam buku digital?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Buka halaman Katalog Buku, pilih judul yang diinginkan, lalu klik tombol "Pinjam Buku Ini" pada detail buku. Status peminjaman akan langsung tercatat pada bagian Peminjaman.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Berapa lama durasi peminjaman buku digital?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Setiap peminjaman berlaku selama 14 hari sejak tanggal pinjam. Sistem akan menampilkan sisa waktu peminjaman pada kartu buku di bagian Peminjaman.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Di mana saya bisa mengunduh file buku?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Setelah meminjam, tautan unduhan akan muncul pada detail buku dan kartu peminjaman, mengarah langsung ke berkas yang tersimpan di Google Drive perpustakaan.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                Apakah progres membaca saya akan tersimpan?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Ya. Progres membaca disimpan secara otomatis di perangkat yang kamu gunakan (localStorage), sehingga akan tetap ada selama kamu tidak menghapus data peramban.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                Bagaimana jika saya ingin membatalkan peminjaman?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Buka bagian Peminjaman, lalu pilih tombol "Kembalikan Buku" pada kartu buku yang diinginkan. Buku akan otomatis berpindah ke Riwayat Peminjaman.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ KONTAK / FORMULIR ============ -->
+<section id="kontak" class="container my-5">
+  <div class="row g-4">
+    <div class="col-lg-5">
+      <span class="section-eyebrow">Hubungi Kami</span>
+      <h2 class="section-title h3">Kontak &amp; Pendaftaran Anggota</h2>
+      <p class="text-muted">Punya pertanyaan seputar layanan perpustakaan, atau ingin mendaftar sebagai anggota baru? Isi formulir di samping, tim pustakawan kami akan merespons melalui email.</p>
+      <ul class="list-unstyled mt-4">
+        <li class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-geo-alt text-maroon"></i> Jl. K.L. Yos Sudarso Km. 6,5 No. 3A, Medan</li>
+        <li class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-envelope text-maroon"></i> pustaka@potensi-utama.ac.id</li>
+        <li class="d-flex align-items-center gap-2"><i class="bi bi-telephone text-maroon"></i> (061) 6640525</li>
+      </ul>
+    </div>
+    <div class="col-lg-7">
+      <form id="formKontak" class="row g-3 needs-validation card-stat p-4" novalidate>
+        <div class="col-md-6">
+          <label for="namaLengkap" class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" id="namaLengkap" required>
+          <div class="invalid-feedback">Mohon isi nama lengkap.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="nim" class="form-label">NIM</label>
+          <input type="text" class="form-control" id="nim" required>
+          <div class="invalid-feedback">Mohon isi NIM.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="emailKontak" class="form-label">Email</label>
+          <input type="email" class="form-control" id="emailKontak" required>
+          <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="kategoriPesan" class="form-label">Kategori Pesan</label>
+          <select class="form-select" id="kategoriPesan" required>
+            <option value="" selected disabled>Pilih kategori</option>
+            <option>Pendaftaran Anggota Baru</option>
+            <option>Kendala Peminjaman</option>
+            <option>Saran Koleksi Buku</option>
+            <option>Lainnya</option>
+          </select>
+          <div class="invalid-feedback">Pilih salah satu kategori.</div>
+        </div>
+        <div class="col-12">
+          <label for="pesanKontak" class="form-label">Pesan</label>
+          <textarea class="form-control" id="pesanKontak" rows="4" required></textarea>
+          <div class="invalid-feedback">Tuliskan pesanmu di sini.</div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-maroon px-4">
+            <span class="spinner-border spinner-border-sm me-2 d-none" id="spinnerKirim"></span>
+            Kirim Pesan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-pustaka pt-5 pb-4 mt-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5 class="font-display text-white d-flex align-items-center gap-2"><i class="bi bi-book-half text-gold"></i> Pustaka Digital</h5>
+        <p class="small mb-0">Layanan perpustakaan digital resmi Universitas Potensi Utama untuk mendukung literasi dan riset seluruh civitas akademika.</p>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 class="text-white mb-3">Navigasi</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#beranda">Beranda</a></li>
+          <li class="mb-2"><a href="#katalog">Katalog Buku</a></li>
+          <li class="mb-2"><a href="#peminjaman">Peminjaman</a></li>
+          <li><a href="#riwayat">Riwayat</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 class="text-white mb-3">Bantuan</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#faq">FAQ</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h6 class="text-white mb-3">Jam Layanan Pustakawan</h6>
+        <p class="small mb-1">Senin – Jumat, 08.00 – 16.00 WIB</p>
+        <p class="small mb-0">Layanan digital aktif 24 jam.</p>
+      </div>
+    </div>
+    <hr class="border-light opacity-25 my-4">
+    <p class="small text-center mb-0">© 2026 Pustaka Digital — Universitas Potensi Utama. Dibuat untuk tugas UAS Web Desain.</p>
+  </div>
+</footer>
+
+<!-- ============ TOAST NOTIFIKASI ============ -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:1080;">
+  <div id="toastNotif" class="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast-header">
+      <i class="bi bi-check-circle-fill text-maroon me-2"></i>
+      <strong class="me-auto">Pustaka Digital</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Tutup"></button>
+    </div>
+    <div class="toast-body" id="toastNotifBody">Aksi berhasil dilakukan.</div>
+  </div>
+</div>
+
+<!-- ============ OFFCANVAS BANTUAN STATUS ============ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasBantuan" aria-labelledby="offcanvasBantuanLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title font-display" id="offcanvasBantuanLabel">Tentang Status Buku</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p><span class="badge bg-success me-2">Tersedia</span> Buku dapat langsung dipinjam.</p>
+    <p><span class="badge bg-maroon me-2">Dipinjam</span> Buku sedang dipinjam olehmu.</p>
+    <p class="mb-0 text-muted small">Klik ikon <i class="bi bi-info-circle"></i> pada navbar untuk membuka panduan ini kembali.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   DATA BUKU
+   Catatan: linkDrive adalah placeholder. Ganti dengan tautan Google Drive
+   nyata (format: https://drive.google.com/file/d/FILE_ID/view) saat
+   buku sungguhan diunggah ke Drive perpustakaan.
+===================================================================== */
+const dataBuku = [
+  { id:"PD-0001", judul:"Dari Logika Mistika, Lewat Filsafat, Menuju Ilmu Pengetahuan", penulis:"Cania Citta", kategori:"Filsafat", isbn:"978-602-1001-01-1", rating:4.6, halaman:212, deskripsi:"Menelusuri perjalanan pemikiran manusia dari mistika ke logika hingga lahirnya metode ilmiah modern.", cover:"https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0001" },
+  { id:"PD-0002", judul:"Delusi Dingin: Sains di Balik Bertahan dalam Ketidakpastian", penulis:"Fellycia Simanjuntak", kategori:"Sains", isbn:"978-602-1001-02-8", rating:4.4, halaman:188, deskripsi:"Mengulas riset psikologi dan sains kognitif tentang cara manusia bertahan menghadapi ketidakpastian.", cover:"https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0002" },
+  { id:"PD-0003", judul:"Asal Usul Perilaku Manusia 101", penulis:"Sabda PS", kategori:"Sains", isbn:"978-602-1001-03-5", rating:4.5, halaman:240, deskripsi:"Pengantar antropologi dan evolusi perilaku manusia yang ditulis dengan gaya populer dan mudah dicerna.", cover:"https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0003" },
+  { id:"PD-0004", judul:"Pengantar Singkat Epistemologi", penulis:"Sheren Aurellia", kategori:"Filsafat", isbn:"978-602-1001-04-2", rating:4.3, halaman:165, deskripsi:"Bagaimana kita tahu apa yang kita ketahui? Buku ini membahas dasar-dasar epistemologi secara ringkas.", cover:"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0004" },
+  { id:"PD-0005", judul:"Public Speaking Mastery: 16 Bahasa Meningkatkan Karier", penulis:"Ongky Hidayat", kategori:"Pengembangan Diri", isbn:"978-602-1001-05-9", rating:4.2, halaman:198, deskripsi:"Strategi praktis melejitkan karier melalui kemampuan berbicara di depan umum.", cover:"https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0005" },
+  { id:"PD-0006", judul:"The Confident Mindset: Level Up Your Confidence", penulis:"Ray Taylor", kategori:"Pengembangan Diri", isbn:"978-602-1001-06-6", rating:4.1, halaman:172, deskripsi:"Panduan membangun rasa percaya diri untuk menghadapi tantangan dunia kerja dan akademik.", cover:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0006" },
+  { id:"PD-0007", judul:"Ekonomi Mikro untuk Pemula", penulis:"Dian Prasetya", kategori:"Ekonomi", isbn:"978-602-1001-07-3", rating:4.4, halaman:256, deskripsi:"Konsep dasar ekonomi mikro disajikan dengan studi kasus relevan bagi mahasiswa tingkat awal.", cover:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0007" },
+  { id:"PD-0008", judul:"Sejarah Nusantara: Jejak Peradaban Sumatera", penulis:"Raden Mas Adi", kategori:"Sejarah", isbn:"978-602-1001-08-0", rating:4.7, halaman:310, deskripsi:"Menyusuri jejak kerajaan dan peradaban yang pernah berkembang di tanah Sumatera.", cover:"https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0008" },
+  { id:"PD-0009", judul:"Algoritma & Struktur Data Praktis", penulis:"Bayu Santoso", kategori:"Sains", isbn:"978-602-1001-09-7", rating:4.6, halaman:288, deskripsi:"Pembahasan struktur data dan algoritma dengan contoh implementasi kode yang aplikatif.", cover:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0009" },
+  { id:"PD-0010", judul:"Kumpulan Sajak Tanah Melayu", penulis:"Nurul Hasanah", kategori:"Sastra", isbn:"978-602-1001-10-3", rating:4.5, halaman:140, deskripsi:"Antologi puisi yang mengangkat budaya dan kearifan lokal Melayu pesisir.", cover:"https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0010" },
+  { id:"PD-0011", judul:"Manajemen Keuangan untuk Mahasiswa", penulis:"Citra Lestari", kategori:"Ekonomi", isbn:"978-602-1001-11-0", rating:4.3, halaman:204, deskripsi:"Tips dan strategi mengelola keuangan pribadi selama masa kuliah.", cover:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0011" },
+  { id:"PD-0012", judul:"Novel Pulang ke Danau Toba", penulis:"Maria Sihombing", kategori:"Sastra", isbn:"978-602-1001-12-7", rating:4.8, halaman:312, deskripsi:"Kisah seorang perantau yang kembali ke kampung halamannya di tepi Danau Toba.", cover:"https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=600&auto=format&fit=crop", linkDrive:"https://drive.google.com/drive/folders/contoh-pd0012" },
+];
+
+/* =====================================================================
+   STATE & LOCALSTORAGE
+===================================================================== */
+const STORAGE_KEY = "pustakaDigital_state_v1";
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return { progres:{}, dipinjam:{}, tersimpan:{}, riwayat:[] };
+    return JSON.parse(raw);
+  }catch(e){
+    return { progres:{}, dipinjam:{}, tersimpan:{}, riwayat:[] };
+  }
+}
+function saveState(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+let state = loadState();
+
+let halamanAktif = 1;
+const ITEM_PER_HALAMAN = 6;
+let modeTampilan = "grid";
+
+/* =====================================================================
+   UTIL
+===================================================================== */
+function cariBuku(id){ return dataBuku.find(b => b.id === id); }
+
+function tampilkanToast(pesan){
+  document.getElementById("toastNotifBody").textContent = pesan;
+  const toastEl = document.getElementById("toastNotif");
+  const toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+  toast.show();
+}
+
+function formatTanggal(iso){
+  const d = new Date(iso);
+  return d.toLocaleDateString("id-ID", { day:"numeric", month:"long", year:"numeric" });
+}
+
+function sisaHari(tenggatIso){
+  const sekarang = new Date();
+  const tenggat = new Date(tenggatIso);
+  const diffMs = tenggat.setHours(0,0,0,0) - sekarang.setHours(0,0,0,0);
+  return Math.ceil(diffMs / (1000*60*60*24));
+}
+
+/* =====================================================================
+   RENDER: KATALOG GRID
+===================================================================== */
+function renderKatalog(){
+  const teksCari = document.getElementById("inputCariBuku").value.trim().toLowerCase();
+  const kategori = document.getElementById("filterKategori").value;
+  const status = document.getElementById("filterStatus").value;
+
+  let hasil = dataBuku.filter(b => {
+    const cocokTeks = !teksCari || b.judul.toLowerCase().includes(teksCari) || b.penulis.toLowerCase().includes(teksCari) || b.isbn.toLowerCase().includes(teksCari);
+    const cocokKategori = kategori === "semua" || b.kategori === kategori;
+    const sedangDipinjam = !!state.dipinjam[b.id];
+    const cocokStatus = status === "semua" || (status === "dipinjam" && sedangDipinjam) || (status === "tersedia" && !sedangDipinjam);
+    return cocokTeks && cocokKategori && cocokStatus;
+  });
+
+  const totalHalaman = Math.max(1, Math.ceil(hasil.length / ITEM_PER_HALAMAN));
+  if(halamanAktif > totalHalaman) halamanAktif = totalHalaman;
+  const mulai = (halamanAktif - 1) * ITEM_PER_HALAMAN;
+  const potongan = hasil.slice(mulai, mulai + ITEM_PER_HALAMAN);
+
+  const grid = document.getElementById("grid-buku");
+  const empty = document.getElementById("katalogEmpty");
+
+  if(hasil.length === 0){
+    grid.innerHTML = "";
+    empty.classList.remove("d-none");
+  } else {
+    empty.classList.add("d-none");
+    grid.innerHTML = potongan.map(b => {
+      const dipinjam = !!state.dipinjam[b.id];
+      const colClass = modeTampilan === "grid" ? "col-12 col-sm-6 col-lg-4" : "col-12";
+      return `
+      <div class="${colClass}">
+        <div class="book-card d-flex ${modeTampilan === 'list' ? 'flex-row' : 'flex-column'}" role="button" tabindex="0" onclick="bukaDetailBuku('${b.id}')" onkeypress="if(event.key==='Enter') bukaDetailBuku('${b.id}')">
+          <div class="book-cover-wrap ${modeTampilan === 'list' ? 'flex-shrink-0' : ''}" style="${modeTampilan === 'list' ? 'width:120px;' : ''}">
+            <div class="dog-ear"></div>
+            <img src="${b.cover}" alt="Sampul buku ${b.judul}" loading="lazy">
+          </div>
+          <div class="p-3 d-flex flex-column flex-grow-1">
+            <span class="badge bg-cream-deep book-cat-badge mb-2 align-self-start" style="color:var(--maroon-dark);">${b.kategori}</span>
+            <h3 class="book-title h6 mb-1">${b.judul}</h3>
+            <p class="text-muted small mb-1">${b.penulis}</p>
+            <p class="book-isbn mb-2">${b.isbn}</p>
+            <div class="d-flex align-items-center gap-2 mt-auto">
+              <span class="badge ${dipinjam ? 'bg-maroon' : 'bg-success'}">${dipinjam ? 'Dipinjam' : 'Tersedia'}</span>
+              <span class="small text-muted"><i class="bi bi-star-fill text-gold"></i> ${b.rating}</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+  }
+
+  renderPaginasi(totalHalaman);
+}
+
+function renderPaginasi(totalHalaman){
+  const ul = document.getElementById("paginasiKatalog");
+  let html = "";
+  html += `<li class="page-item ${halamanAktif === 1 ? 'disabled' : ''}">
+    <button class="page-link" style="color:var(--maroon);" onclick="gantiHalaman(${halamanAktif - 1})">Sebelumnya</button></li>`;
+  for(let i = 1; i <= totalHalaman; i++){
+    html += `<li class="page-item ${i === halamanAktif ? 'active' : ''}">
+      <button class="page-link" style="${i === halamanAktif ? 'background-color:var(--maroon);border-color:var(--maroon);' : 'color:var(--maroon);'}" onclick="gantiHalaman(${i})">${i}</button></li>`;
+  }
+  html += `<li class="page-item ${halamanAktif === totalHalaman ? 'disabled' : ''}">
+    <button class="page-link" style="color:var(--maroon);" onclick="gantiHalaman(${halamanAktif + 1})">Berikutnya</button></li>`;
+  ul.innerHTML = html;
+}
+
+function gantiHalaman(h){
+  halamanAktif = h;
+  renderKatalog();
+  document.getElementById("katalog").scrollIntoView({ behavior:"smooth", block:"start" });
+}
+
+/* =====================================================================
+   MODAL DETAIL BUKU
+===================================================================== */
+let bukuAktifId = null;
+
+function bukaDetailBuku(id){
+  const b = cariBuku(id);
+  if(!b) return;
+  bukuAktifId = id;
+  const dipinjam = !!state.dipinjam[id];
+
+  document.getElementById("breadcrumbKategori").textContent = b.kategori;
+  document.getElementById("breadcrumbJudul").textContent = b.judul;
+  document.getElementById("modalCover").src = b.cover;
+  document.getElementById("modalCover").alt = "Sampul buku " + b.judul;
+  document.getElementById("modalKategori").textContent = b.kategori;
+  document.getElementById("modalJudul").textContent = b.judul;
+  document.getElementById("modalPenulis").textContent = b.penulis;
+  document.getElementById("modalIsbn").textContent = "ISBN: " + b.isbn;
+  document.getElementById("modalDeskripsi").textContent = b.deskripsi;
+  document.getElementById("modalRating").textContent = b.rating;
+  document.getElementById("modalHalaman").textContent = b.halaman;
+
+  const statusBadge = document.getElementById("modalStatusBadge");
+  const btnPinjam = document.getElementById("btnPinjamModal");
+  const btnUnduh = document.getElementById("btnUnduhModal");
+  const btnKembalikan = document.getElementById("btnKembalikanModal");
+  const alertDipinjam = document.getElementById("modalAlertDipinjam");
+
+  if(dipinjam){
+    statusBadge.textContent = "Dipinjam";
+    statusBadge.className = "badge bg-maroon";
+    btnPinjam.classList.add("d-none");
+    btnUnduh.classList.remove("d-none");
+    btnUnduh.href = b.linkDrive;
+    btnKembalikan.classList.remove("d-none");
+    alertDipinjam.classList.remove("d-none");
+  } else {
+    statusBadge.textContent = "Tersedia";
+    statusBadge.className = "badge bg-success";
+    btnPinjam.classList.remove("d-none");
+    btnUnduh.classList.add("d-none");
+    btnKembalikan.classList.add("d-none");
+    alertDipinjam.classList.add("d-none");
+  }
+
+  const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("modalDetailBuku"));
+  modal.show();
+}
+
+document.getElementById("btnPinjamModal").addEventListener("click", () => {
+  if(bukuAktifId) pinjamBuku(bukuAktifId);
+  bukaDetailBuku(bukuAktifId);
+});
+document.getElementById("btnKembalikanModal").addEventListener("click", () => {
+  if(bukuAktifId) kembalikanBuku(bukuAktifId);
+  bootstrap.Modal.getOrCreateInstance(document.getElementById("modalDetailBuku")).hide();
+});
+
+/* =====================================================================
+   AKSI PINJAM / KEMBALIKAN
+===================================================================== */
+function pinjamBuku(id){
+  const b = cariBuku(id);
+  if(!b) return;
+  const sekarang = new Date();
+  const tenggat = new Date();
+  tenggat.setDate(tenggat.getDate() + 14);
+
+  state.dipinjam[id] = {
+    tanggalPinjam: sekarang.toISOString(),
+    tenggat: tenggat.toISOString()
+  };
+  state.progres[id] = state.progres[id] || 0;
+  saveState();
+  renderSemua();
+  tampilkanToast(`"${b.judul}" berhasil dipinjam. Tenggat: ${formatTanggal(tenggat)}.`);
+}
+
+function kembalikanBuku(id){
+  const b = cariBuku(id);
+  if(!b) return;
+  const info = state.dipinjam[id];
+  if(info){
+    state.riwayat.unshift({
+      id, judul: b.judul, penulis: b.penulis,
+      tanggalPinjam: info.tanggalPinjam,
+      tanggalKembali: new Date().toISOString()
+    });
+  }
+  delete state.dipinjam[id];
+  delete state.progres[id];
+  saveState();
+  renderSemua();
+  tampilkanToast(`"${b.judul}" telah dikembalikan dan dipindahkan ke Riwayat.`);
+}
+
+function toggleSimpan(id){
+  const b = cariBuku(id);
+  if(!b) return;
+  if(state.tersimpan[id]){
+    delete state.tersimpan[id];
+    tampilkanToast(`"${b.judul}" dihapus dari daftar tersimpan.`);
+  } else {
+    state.tersimpan[id] = true;
+    tampilkanToast(`"${b.judul}" ditambahkan ke daftar tersimpan.`);
+  }
+  saveState();
+  renderSemua();
+}
+
+function ubahProgres(id, nilai){
+  state.progres[id] = Math.max(0, Math.min(100, parseInt(nilai, 10) || 0));
+  saveState();
+  renderProgresBaca();
+}
+
+/* =====================================================================
+   RENDER: PROGRES MEMBACA (bookmark progress)
+===================================================================== */
+function renderProgresBaca(){
+  const idDipinjam = Object.keys(state.dipinjam);
+  const wrap = document.getElementById("progressBacaWrap");
+  const empty = document.getElementById("progressBacaEmpty");
+
+  if(idDipinjam.length === 0){
+    wrap.innerHTML = "";
+    empty.classList.remove("d-none");
+    return;
+  }
+  empty.classList.add("d-none");
+
+  wrap.innerHTML = idDipinjam.map(id => {
+    const b = cariBuku(id);
+    if(!b) return "";
+    const progres = state.progres[id] || 0;
+    return `
+    <div class="col-12 col-lg-6">
+      <div class="bookmark-progress h-100">
+        <div class="d-flex justify-content-between align-items-start mb-2 gap-2">
+          <div>
+            <h4 class="book-title h6 mb-0">${b.judul}</h4>
+            <small class="text-muted">${b.penulis}</small>
+          </div>
+          <span class="fw-600" style="color:var(--maroon);">${progres}%</span>
+        </div>
+        <div class="bookmark-track mb-2">
+          <div class="bookmark-fill" style="width:${progres}%;"></div>
+        </div>
+        <input type="range" class="form-range" min="0" max="100" value="${progres}"
+          aria-label="Atur progres membaca ${b.judul}"
+          oninput="ubahProgres('${id}', this.value)">
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* =====================================================================
+   RENDER: PEMINJAMAN (tab aktif & tersimpan)
+===================================================================== */
+function renderPeminjaman(){
+  const idDipinjam = Object.keys(state.dipinjam);
+  const listAktif = document.getElementById("listPinjamanAktif");
+  const emptyAktif = document.getElementById("pinjamanAktifEmpty");
+
+  if(idDipinjam.length === 0){
+    listAktif.innerHTML = "";
+    emptyAktif.classList.remove("d-none");
+  } else {
+    emptyAktif.classList.add("d-none");
+    listAktif.innerHTML = idDipinjam.map(id => {
+      const b = cariBuku(id);
+      const info = state.dipinjam[id];
+      const sisa = sisaHari(info.tenggat);
+      const labelSisa = sisa < 0 ? `Terlambat ${Math.abs(sisa)} hari` : (sisa === 0 ? "Jatuh tempo hari ini" : `${sisa} hari lagi`);
+      const warnaSisa = sisa < 0 ? "text-danger" : (sisa <= 3 ? "text-warning" : "text-muted");
+      return `
+      <div class="list-group-item active-borrow d-flex justify-content-between align-items-center flex-wrap gap-2 py-3">
+        <div>
+          <h4 class="book-title h6 mb-1">${b.judul}</h4>
+          <small class="text-muted d-block">Dipinjam: ${formatTanggal(info.tanggalPinjam)}</small>
+          <small class="${warnaSisa}">Tenggat: ${formatTanggal(info.tenggat)} (${labelSisa})</small>
+        </div>
+        <div class="d-flex gap-2">
+          <a href="${b.linkDrive}" target="_blank" class="btn btn-sm btn-outline-maroon"><i class="bi bi-cloud-arrow-down me-1"></i>Unduh</a>
+          <button class="btn btn-sm btn-maroon" onclick="kembalikanBuku('${id}')"><i class="bi bi-arrow-counterclockwise me-1"></i>Kembalikan</button>
+        </div>
+      </div>`;
+    }).join("");
+  }
+
+  const idTersimpan = Object.keys(state.tersimpan);
+  const listTersimpan = document.getElementById("listTersimpan");
+  const emptyTersimpan = document.getElementById("tersimpanEmpty");
+
+  if(idTersimpan.length === 0){
+    listTersimpan.innerHTML = "";
+    emptyTersimpan.classList.remove("d-none");
+  } else {
+    emptyTersimpan.classList.add("d-none");
+    listTersimpan.innerHTML = idTersimpan.map(id => {
+      const b = cariBuku(id);
+      if(!b) return "";
+      return `
+      <div class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 py-3">
+        <div>
+          <h4 class="book-title h6 mb-1">${b.judul}</h4>
+          <small class="text-muted">${b.penulis} • ${b.kategori}</small>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-sm btn-outline-maroon" onclick="bukaDetailBuku('${id}')">Lihat Detail</button>
+          <button class="btn btn-sm btn-outline-secondary" onclick="toggleSimpan('${id}')"><i class="bi bi-bookmark-x"></i></button>
+        </div>
+      </div>`;
+    }).join("");
+  }
+}
+
+/* =====================================================================
+   RENDER: RIWAYAT
+===================================================================== */
+function renderRiwayat(){
+  const list = document.getElementById("listRiwayat");
+  const empty = document.getElementById("riwayatEmpty");
+
+  if(state.riwayat.length === 0){
+    list.innerHTML = "";
+    empty.classList.remove("d-none");
+    return;
+  }
+  empty.classList.add("d-none");
+  list.innerHTML = state.riwayat.map(r => `
+    <div class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 py-3">
+      <div>
+        <h4 class="book-title h6 mb-1">${r.judul}</h4>
+        <small class="text-muted">${r.penulis}</small>
+      </div>
+      <div class="text-end">
+        <small class="d-block text-muted">Dipinjam: ${formatTanggal(r.tanggalPinjam)}</small>
+        <small class="d-block text-muted">Dikembalikan: ${formatTanggal(r.tanggalKembali)}</small>
+      </div>
+    </div>
+  `).join("");
+}
+
+/* =====================================================================
+   NAVBAR: NAMA PENGGUNA (disimpan localStorage sederhana)
+===================================================================== */
+function muatNamaPengguna(){
+  const nama = localStorage.getItem("pustakaDigital_namaPengguna") || "Tamu";
+  document.getElementById("navUserName").textContent = nama;
+}
+
+/* =====================================================================
+   RENDER SEMUA
+===================================================================== */
+function renderSemua(){
+  renderKatalog();
+  renderProgresBaca();
+  renderPeminjaman();
+  renderRiwayat();
+}
+
+/* =====================================================================
+   EVENT LISTENERS
+===================================================================== */
+document.getElementById("inputCariBuku").addEventListener("input", () => { halamanAktif = 1; renderKatalog(); });
+document.getElementById("filterKategori").addEventListener("change", () => { halamanAktif = 1; renderKatalog(); });
+document.getElementById("filterStatus").addEventListener("change", () => { halamanAktif = 1; renderKatalog(); });
+
+document.getElementById("btnViewGrid").addEventListener("click", function(){
+  modeTampilan = "grid";
+  this.classList.add("active");
+  document.getElementById("btnViewList").classList.remove("active");
+  renderKatalog();
+});
+document.getElementById("btnViewList").addEventListener("click", function(){
+  modeTampilan = "list";
+  this.classList.add("active");
+  document.getElementById("btnViewGrid").classList.remove("active");
+  renderKatalog();
+});
+
+/* Form kontak: validasi Bootstrap + simulasi kirim dengan spinner */
+const formKontak = document.getElementById("formKontak");
+formKontak.addEventListener("submit", function(e){
+  e.preventDefault();
+  e.stopPropagation();
+  if(!formKontak.checkValidity()){
+    formKontak.classList.add("was-validated");
+    return;
+  }
+  const spinner = document.getElementById("spinnerKirim");
+  spinner.classList.remove("d-none");
+  setTimeout(() => {
+    spinner.classList.add("d-none");
+    formKontak.reset();
+    formKontak.classList.remove("was-validated");
+    tampilkanToast("Pesanmu berhasil terkirim. Tim pustakawan akan segera merespons.");
+  }, 900);
+});
+
+/* Inisialisasi tooltip Bootstrap */
+document.addEventListener("DOMContentLoaded", () => {
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
+});
+
+/* =====================================================================
+   INISIALISASI AWAL
+===================================================================== */
+muatNamaPengguna();
+renderSemua();
+</script>
+
+</body>
+</html>
