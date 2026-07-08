@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pustaka Digital — Universitas Potensi Utama</title>
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#konten-utama" class="visually-hidden-focusable skip-link">Lompat ke konten utama</a>
+
+<!-- ================================================================
+     NAVBAR
+     ================================================================ -->
+<nav class="navbar navbar-expand-lg navbar-pustaka sticky-top" id="navbarUtama">
+  <div class="container">
+    <table>
+      <tr>
+        <td><img src="https://logo.yedepe.com/logo-universitas-potensi-utama/"</td>
+        <td>
+          <a class="navbar-brand brand-mark" href="#beranda">Pustaka<span             class="accent">Digital</span>
+          </a>
+        </td>
+      </tr>
+    </table>
+    <button class="navbar-toggler border-0" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navMain"
+      aria-controls="navMain" aria-expanded="false" aria-label="Buka menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#popular">E-book Populer</a></li>
+        <li class="nav-item"><a class="nav-link" href="#katalog">Katalog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#peminjaman">Peminjaman</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq-section">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-pill-btn d-flex align-items-center gap-2" href="#"
+            id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+            <span id="navUserName">Tamu</span>
+            <i class="bi bi-chevron-down" style="font-size:0.7rem;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3">
+            <li><a class="dropdown-item" href="#peminjaman"><i class="bi bi-journal-bookmark me-2 text-blue"></i>Sedang Dipinjam</a>                </li>
+            <li><a class="dropdown-item" href="#riwayat"><i class="bi bi-clock-history me-2 text-blue"></i>Riwayat</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasBantuan">
+                <i class="bi bi-question-circle me-2 text-blue"></i>Panduan Status
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="konten-utama">
+
+<!-- ================================================================
+     BERANDA — HERO CAROUSEL
+     ================================================================ -->
+<section id="beranda">
+  <div class="container pt-3">
+    <div class="hero-carousel-wrapper">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="carousel-slide"
+              style="background-image:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1600&auto=format&fit=crop');">
+              <div class="container">
+                <div class="carousel-slide-content col-lg-7 fade-up">
+                  <div class="hero-badge"><i class="bi bi-stars"></i> Pekan Literasi Kampus 2026</div>
+                  <h2>Jelajahi Ribuan Koleksi Digital — Kapan Saja, Di Mana Saja</h2>
+                  <p class="mb-4 fs-5 opacity-85" style="max-width:520px;">
+                    Akses katalog Pustaka Digital Universitas Potensi Utama. Pinjam, baca, dan pantau progresmu langsung dari perangkatmu.
+                  </p>
+                  <a href="#katalog" class="btn btn-blue btn-lg px-4 me-2">Mulai Jelajahi <i class="bi bi-arrow-right ms-1"></i></a>
+                  <a href="#popular" class="btn btn-outline-light btn-lg px-4">Lihat Populer</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="carousel-slide"
+              style="background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop');">
+              <div class="container">
+                <div class="carousel-slide-content col-lg-7">
+                  <div class="hero-badge"><i class="bi bi-journal-check"></i> Layanan Peminjaman Online</div>
+                  <h2>Pinjam Buku Tanpa Antre, Baca Tanpa Batas Waktu Operasional</h2>
+                  <p class="mb-4 fs-5 opacity-85" style="max-width:520px;">
+                    Sistem peminjaman digital memungkinkanmu meminjam e-book 24 jam dan melacak tenggat pengembalian otomatis.
+                  </p>
+                  <a href="#peminjaman" class="btn btn-blue btn-lg px-4">Cara Pinjam <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="carousel-slide"
+              style="background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1600&auto=format&fit=crop');">
+              <div class="container">
+                <div class="carousel-slide-content col-lg-7">
+                  <div class="hero-badge"><i class="bi bi-collection"></i> Koleksi Terbaru</div>
+                  <h2>Tambahan 120 Judul Baru di Kategori Sains &amp; Teknologi</h2>
+                  <p class="mb-4 fs-5 opacity-85" style="max-width:520px;">
+                    Perkaya referensi akademikmu dengan koleksi terbaru yang dikurasi langsung oleh pustakawan kampus.
+                  </p>
+                  <a href="#katalog" class="btn btn-blue btn-lg px-4">Lihat Koleksi <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Sebelumnya</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Berikutnya</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     POPULAR E-BOOKS
+     ================================================================ -->
+<section id="popular">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-3">
+      <div>
+        <span class="section-eyebrow">Pilihan Editor</span>
+        <h2 class="section-title h3 mb-1">E-book Populer</h2>
+        <p class="text-muted mb-0 small">Koleksi paling banyak dibaca oleh mahasiswa bulan ini.</p>
+      </div>
+      <div class="popular-scroll-nav">
+        <button class="scroll-nav-btn" onclick="scrollPopular(-1)" aria-label="Geser kiri">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="scroll-nav-btn" onclick="scrollPopular(1)" aria-label="Geser kanan">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="popular-scroll-track" id="popularScrollTrack">
+      <div class="popular-scroll-inner" id="popularTrack">
+        <!-- diisi JavaScript -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Progres Membaca -->
+<section id="progres" class="container">
+  <div class="d-flex justify-content-between align-items-end mb-3 flex-wrap gap-2">
+    <div>
+      <span class="section-eyebrow">Lanjutkan</span>
+      <h2 class="section-title h3 mb-0">Progres Membaca</h2>
+    </div>
+    <span class="badge" style="background:var(--gold-light);color:var(--blue-dark);border:1px solid rgba(201,162,39,0.3);font-family:var(--font-mono);font-size:0.72rem;padding:5px 12px;border-radius:999px;">
+      <i class="bi bi-hdd me-1"></i>Tersimpan di perangkat ini
+    </span>
+  </div>
+  <div id="progressBacaWrap" class="row g-3"></div>
+  <div id="progressBacaEmpty" class="text-center py-5 d-none">
+    <i class="bi bi-bookmark-heart display-4" style="color:var(--blue-soft);"></i>
+    <p class="mt-3 mb-0 text-muted">Belum ada buku yang sedang dibaca. Pinjam buku dari katalog untuk mulai melacak progresmu.</p>
+  </div>
+</section>
+
+<div class="container py-2"><div class="section-divider"></div></div>
+
+<!-- ================================================================
+     KATALOG BUKU
+     ================================================================ -->
+<section id="katalog">
+  <div class="container">
+    <div class="mb-4">
+      <span class="section-eyebrow">Koleksi Perpustakaan</span>
+      <h2 class="section-title h3 mb-1">Katalog Buku</h2>
+      <p class="text-muted mb-0">Telusuri koleksi e-book Universitas Potensi Utama.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="row g-2 align-items-center">
+        <div class="col-12 col-lg-5">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
+            <input type="text" id="inputCariBuku" class="form-control border-start-0"
+              placeholder="Cari judul, penulis, atau ISBN…">
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <select class="form-select" id="filterKategori">
+            <option value="semua" selected>Semua Kategori</option>
+            <option value="Filsafat">Filsafat</option>
+            <option value="Sastra">Sastra</option>
+            <option value="Pengembangan Diri">Pengembangan Diri</option>
+            <option value="Sains">Sains</option>
+            <option value="Ekonomi">Ekonomi</option>
+            <option value="Teknologi">Teknologi</option>
+            <option value="Agama & Budaya">Agama &amp; Budaya</option>
+          </select>
+        </div>
+        <div class="col-6 col-lg-2">
+          <select class="form-select" id="filterStatus">
+            <option value="semua" selected>Semua Status</option>
+            <option value="tersedia">Tersedia</option>
+            <option value="dipinjam">Dipinjam</option>
+          </select>
+        </div>
+        <div class="col-12 col-lg-2 d-flex justify-content-lg-end">
+          <div class="btn-group" role="group" aria-label="Mode tampilan">
+            <button type="button" class="btn btn-outline-blue active" id="btnViewGrid"
+              data-bs-toggle="tooltip" title="Tampilan Grid">
+              <i class="bi bi-grid-3x3-gap-fill"></i>
+            </button>
+            <button type="button" class="btn btn-outline-blue" id="btnViewList"
+              data-bs-toggle="tooltip" title="Tampilan List">
+              <i class="bi bi-list-ul"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid Buku -->
+    <div class="row g-3 g-lg-4" id="grid-buku"></div>
+
+    <div id="katalogEmpty" class="text-center py-5 d-none">
+      <i class="bi bi-emoji-frown display-4" style="color:var(--blue-soft);"></i>
+      <p class="mt-3 mb-0 text-muted">Buku tidak ditemukan. Coba kata kunci atau filter lain.</p>
+    </div>
+
+    <!-- Pagination -->
+    <nav class="mt-4 d-flex justify-content-center" aria-label="Halaman katalog">
+      <ul class="pagination" id="paginasiKatalog"></ul>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<!-- ================================================================
+     MODAL DETAIL BUKU
+     ================================================================ -->
+<div class="modal fade" id="modalDetailBuku" tabindex="-1" aria-labelledby="modalDetailBukuLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header py-2 px-4">
+        <nav aria-label="breadcrumb" class="flex-grow-1">
+          <ol class="breadcrumb mb-0 small">
+            <li class="breadcrumb-item">
+              <a href="#katalog" data-bs-dismiss="modal" style="color:var(--blue);text-decoration:none;">Katalog</a>
+            </li>
+            <li class="breadcrumb-item active" id="breadcrumbKategori">Kategori</li>
+            <li class="breadcrumb-item active" id="breadcrumbJudul">Judul</li>
+          </ol>
+        </nav>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body p-4">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="book-cover-wrap rounded-3">
+              <img id="modalCover" src="" alt="">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <span class="badge book-cat-badge mb-2" id="modalKategori">Kategori</span>
+            <h3 class="font-display fw-bold" id="modalJudul">Judul Buku</h3>
+            <p class="text-muted mb-1" id="modalPenulis">Penulis</p>
+            <p class="book-isbn mb-3" id="modalIsbn">ISBN: -</p>
+            <p id="modalDeskripsi" class="mb-3 small">Deskripsi singkat buku.</p>
+            <div class="d-flex flex-wrap gap-3 mb-3 small">
+              <div><i class="bi bi-star-fill" style="color:var(--gold);"></i> <span id="modalRating">4.5</span>/5</div>
+              <div><i class="bi bi-file-earmark-text text-muted"></i> <span id="modalHalaman">0</span> Halaman</div>
+              <div><span class="badge" id="modalStatusBadge">Tersedia</span></div>
+            </div>
+            <div class="alert alert-warning py-2 small d-none" id="modalAlertDipinjam">
+              <i class="bi bi-exclamation-triangle me-1"></i>Buku ini sedang kamu pinjam. Lanjutkan dari tombol di bawah.
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+              <button class="btn btn-blue" id="btnPinjamModal">
+                <i class="bi bi-journal-plus me-1"></i>Pinjam Buku Ini
+              </button>
+              <a href="#" id="btnUnduhModal" target="_blank" rel="noopener"
+                class="btn btn-outline-blue d-none">
+                <i class="bi bi-cloud-arrow-down me-1"></i>Unduh
+              </a>
+              <button class="btn btn-outline-secondary d-none" id="btnKembalikanModal">
+                <i class="bi bi-arrow-counterclockwise me-1"></i>Kembalikan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PEMINJAMAN & RIWAYAT
+     ================================================================ -->
+<section id="peminjaman" class="container">
+  <div style="padding: 3rem 0 1.5rem;">
+    <span class="section-eyebrow">Status Buku Saya</span>
+    <h2 class="section-title h3 mb-1">Peminjaman</h2>
+    <p class="text-muted mb-0">Pantau buku yang sedang kamu pinjam dan tenggat pengembaliannya.</p>
+  </div>
+
+  <ul class="nav nav-pills mb-4" id="pinjamTab" role="tablist">
+    <li class="nav-item">
+      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-aktif" type="button">
+        <i class="bi bi-journal-bookmark me-1"></i>Sedang Dipinjam
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-tersimpan" type="button">
+        <i class="bi bi-bookmark-star me-1"></i>Tersimpan
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content pb-5">
+    <div class="tab-pane fade show active" id="tab-aktif">
+      <div class="list-group rounded-3 overflow-hidden" id="listPinjamanAktif"></div>
+      <div id="pinjamanAktifEmpty" class="text-center py-5 d-none">
+        <i class="bi bi-journal-x display-4" style="color:var(--blue-soft);"></i>
+        <p class="mt-3 mb-0 text-muted">Belum ada buku yang sedang dipinjam.</p>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="tab-tersimpan">
+      <div class="list-group rounded-3 overflow-hidden" id="listTersimpan"></div>
+      <div id="tersimpanEmpty" class="text-center py-5 d-none">
+        <i class="bi bi-bookmark display-4" style="color:var(--blue-soft);"></i>
+        <p class="mt-3 mb-0 text-muted">Belum ada buku tersimpan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="section-divider"></div></div>
+
+<section id="riwayat" class="container" style="padding: 3rem 0;">
+  <div class="mb-4">
+    <span class="section-eyebrow">Jejak Bacaan</span>
+    <h2 class="section-title h3 mb-1">Riwayat Peminjaman</h2>
+    <p class="text-muted mb-0">Daftar buku yang telah selesai kamu pinjam dan kembalikan.</p>
+  </div>
+  <div class="list-group rounded-3 overflow-hidden" id="listRiwayat"></div>
+  <div id="riwayatEmpty" class="text-center py-5 d-none">
+    <i class="bi bi-clock-history display-4" style="color:var(--blue-soft);"></i>
+    <p class="mt-3 mb-0 text-muted">Riwayat akan muncul setelah kamu mengembalikan buku.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ
+     ================================================================ -->
+<section id="faq-section">
+  <div class="container">
+    <div class="row align-items-start g-5">
+      <div class="col-lg-4">
+        <span class="section-eyebrow faq-section-eyebrow">Bantuan</span>
+        <h2 class="section-title faq-section-title h3 mt-2 mb-3">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+        <p style="color:rgba(255,255,255,0.65); font-size:0.9rem;">
+          Tidak menemukan jawaban? Hubungi kami melalui formulir kontak di bawah.
+        </p>
+        <a href="#kontak" class="btn btn-outline-light mt-2">Hubungi Kami <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <div class="col-lg-8">
+        <div class="accordion" id="accordionFaq">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Bagaimana cara meminjam buku digital?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Buka halaman Katalog Buku, pilih judul yang diinginkan, lalu klik tombol <strong>Pinjam Buku Ini</strong> pada detail buku. Status peminjaman akan langsung tercatat pada bagian Peminjaman.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Berapa lama durasi peminjaman buku digital?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Setiap peminjaman berlaku selama <strong>14 hari</strong> sejak tanggal pinjam. Sistem akan menampilkan sisa waktu dan notifikasi ketika tenggat semakin dekat.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Di mana saya bisa mengunduh file buku?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Setelah meminjam, tautan unduhan akan muncul pada detail buku dan kartu peminjaman, mengarah langsung ke berkas di Google Drive perpustakaan.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                Apakah progres membaca saya tersimpan?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Ya. Progres membaca tersimpan otomatis di perangkat yang kamu gunakan (localStorage), sehingga tetap ada selama kamu tidak menghapus data peramban.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                Bagaimana cara membatalkan peminjaman?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Buka bagian Peminjaman, lalu pilih tombol <strong>Kembalikan Buku</strong> pada kartu buku. Buku akan otomatis berpindah ke Riwayat Peminjaman.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     KONTAK & FORMULIR
+     ================================================================ -->
+<section id="kontak">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <span class="section-eyebrow">Hubungi Kami</span>
+        <h2 class="section-title h3 mt-2 mb-3">Kontak &amp; Pendaftaran Anggota</h2>
+        <p class="text-muted">Punya pertanyaan atau ingin mendaftar sebagai anggota baru? Tim pustakawan kami siap membantu.</p>
+        <div class="mt-4 d-flex flex-column gap-3">
+          <div class="d-flex align-items-center gap-3">
+            <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <div class="fw-600 small">Alamat</div>
+              <div class="text-muted small">Jl. K.L. Yos Sudarso Km. 6,5 No. 3A, Medan</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <div class="fw-600 small">Email</div>
+              <div class="text-muted small">pustaka@potensi-utama.ac.id</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div class="contact-info-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <div class="fw-600 small">Telepon</div>
+              <div class="text-muted small">(061) 6640525</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div class="contact-info-icon"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <div class="fw-600 small">Jam Layanan</div>
+              <div class="text-muted small">Senin–Jumat, 08.00–16.00 WIB<br>Digital: 24 jam aktif</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="contact-card">
+          <h5 class="font-display mb-4" style="color:var(--blue-dark);">Kirim Pesan</h5>
+          <form id="formKontak" class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+              <label for="namaLengkap" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="namaLengkap" placeholder="Nama kamu" required>
+              <div class="invalid-feedback">Mohon isi nama lengkap.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="nim" class="form-label">NIM</label>
+              <input type="text" class="form-control" id="nim" placeholder="Nomor Induk Mahasiswa" required>
+              <div class="invalid-feedback">Mohon isi NIM.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="emailKontak" class="form-label">Email</label>
+              <input type="email" class="form-control" id="emailKontak" placeholder="email@potensi-utama.ac.id" required>
+              <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="kategoriPesan" class="form-label">Kategori Pesan</label>
+              <select class="form-select" id="kategoriPesan" required>
+                <option value="" selected disabled>Pilih kategori</option>
+                <option>Pendaftaran Anggota Baru</option>
+                <option>Kendala Peminjaman</option>
+                <option>Saran Koleksi Buku</option>
+                <option>Lainnya</option>
+              </select>
+              <div class="invalid-feedback">Pilih salah satu kategori.</div>
+            </div>
+            <div class="col-12">
+              <label for="pesanKontak" class="form-label">Pesan</label>
+              <textarea class="form-control" id="pesanKontak" rows="4"
+                placeholder="Tulis pesanmu di sini…" required></textarea>
+              <div class="invalid-feedback">Tuliskan pesanmu di sini.</div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-blue px-4">
+                <span class="spinner-border spinner-border-sm me-2 d-none" id="spinnerKirim"></span>
+                <i class="bi bi-send me-1"></i> Kirim Pesan
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="footer-pustaka">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand d-flex align-items-center gap-2 mb-3">
+          <i class="bi bi-book-half" style="color:var(--gold);font-size:1.5rem;"></i>
+          Pustaka<span style="color:var(--gold);">Digital</span>
+        </div>
+        <p class="small mb-3" style="color:rgba(255,255,255,0.65);">
+          Layanan perpustakaan digital resmi Universitas Potensi Utama untuk mendukung literasi dan riset seluruh civitas akademika.
+        </p>
+        <div class="footer-social d-flex gap-2">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Email"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h6 class="text-white mb-3 small fw-bold text-uppercase" style="letter-spacing:1px;">Navigasi</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#beranda">Beranda</a></li>
+          <li class="mb-2"><a href="#popular">E-book Populer</a></li>
+          <li class="mb-2"><a href="#katalog">Katalog Buku</a></li>
+          <li class="mb-2"><a href="#peminjaman">Peminjaman</a></li>
+          <li><a href="#riwayat">Riwayat</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <h6 class="text-white mb-3 small fw-bold text-uppercase" style="letter-spacing:1px;">Bantuan</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#faq-section">FAQ</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h6 class="text-white mb-3 small fw-bold text-uppercase" style="letter-spacing:1px;">Tentang Kampus</h6>
+        <p class="small mb-2" style="color:rgba(255,255,255,0.65);">
+          Universitas Potensi Utama<br>
+          Jl. K.L. Yos Sudarso Km. 6,5 No. 3A, Medan, Sumatera Utara
+        </p>
+        <p class="small mb-0" style="color:rgba(255,255,255,0.65);">
+          <i class="bi bi-clock me-1" style="color:var(--gold);"></i>Senin – Jumat, 08.00–16.00 WIB<br>
+          <i class="bi bi-globe me-1" style="color:var(--gold);"></i>Digital 24 jam aktif
+        </p>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <p class="small text-center mb-0" style="color:rgba(255,255,255,0.45);">
+      © 2026 Pustaka Digital — Universitas Potensi Utama. Dibuat untuk Tugas UAS Web Desain.
+    </p>
+  </div>
+</footer>
+
+<!-- ================================================================
+     TOAST NOTIFIKASI
+     ================================================================ -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:1090;">
+  <div id="toastNotif" class="toast align-items-center" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast-header">
+      <i class="bi bi-check-circle-fill me-2" style="color:var(--blue);"></i>
+      <strong class="me-auto">Pustaka Digital</strong>
+      <button type="button" class="btn-close btn-close-sm" data-bs-dismiss="toast" aria-label="Tutup"></button>
+    </div>
+    <div class="toast-body" id="toastNotifBody">Aksi berhasil dilakukan.</div>
+  </div>
+</div>
+
+<!-- ================================================================
+     OFFCANVAS BANTUAN STATUS
+     ================================================================ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasBantuan" aria-labelledby="offcanvasBantuanLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title font-display" id="offcanvasBantuanLabel">Panduan Status Buku</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p><span class="badge-available me-2 px-2 py-1 rounded-pill">Tersedia</span> Buku dapat langsung dipinjam.</p>
+    <p><span class="badge-borrowed me-2 px-2 py-1 rounded-pill">Dipinjam</span> Buku sedang dipinjam olehmu.</p>
+    <hr>
+    <p class="small text-muted">Klik nama pengguna di sudut kanan atas → <em>Panduan Status</em> untuk membuka panduan ini kembali.</p>
+  </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="main.js"></script>
+
+</body>
+</html>
